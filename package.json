@@ -1,0 +1,11 @@
+{
+  "name": "testes-almoco-ifpb",
+  "private": true,
+  "scripts": { "test": "jest" },
+  "devDependencies": { "jest": "^29.7.0", "jest-environment-jsdom": "^29.7.0" },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFiles": ["./tests/jest.setup.js"],
+    "testMatch": ["**/*.test.js"]
+  }
+}

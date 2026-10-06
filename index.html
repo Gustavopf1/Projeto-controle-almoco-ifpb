@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Entrar | Controle de almoço</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Controle de almoço</h1>
+  </header>
+
+  <main class="centro">
+    <section class="cartao">
+      <h2>Entrar</h2>
+      <p class="ajuda">Acesso exclusivo do responsável pelo restaurante.</p>
+
+      <div class="campo">
+        <label for="usuario">Usuário</label>
+        <input type="text" id="usuario" placeholder="Digite seu usuário" autocomplete="username">
+      </div>
+      <div class="campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha" autocomplete="current-password">
+      </div>
+
+      <button class="botao cheio" id="btn-entrar" type="button">Entrar</button>
+      <p class="erro" id="erro" hidden>Usuário ou senha incorretos.</p>
+    </section>
+  </main>
+
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

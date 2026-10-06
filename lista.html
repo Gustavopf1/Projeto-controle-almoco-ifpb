@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Almoço do dia | Controle de almoço</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <main class="pagina">
+    <header class="cabecalho-verde">
+      <div>
+        <h1>Almoço do dia</h1>
+        <p class="data" id="data-extenso"></p>
+      </div>
+      <div class="acoes">
+        <a class="botao" href="importar.html">Importar lista</a>
+        <button class="botao" id="btn-sair" type="button">Sair</button>
+      </div>
+    </header>
+
+    <div class="aviso" id="aviso-encerrada" hidden></div>
+
+    <section class="resumo" aria-label="Resumo do dia">
+      <div class="card"><span>Previstos</span><strong id="n-previstos">0</strong></div>
+      <div class="card destaque"><span>Entregues</span><strong id="n-entregues">0</strong></div>
+      <div class="card"><span id="rotulo-restantes">Restantes</span><strong id="n-restantes">0</strong></div>
+    </section>
+
+    <div class="barra-busca">
+      <input type="search" id="busca" placeholder="Buscar por nome ou matrícula" aria-label="Buscar aluno">
+      <button class="botao contorno" id="btn-extra" type="button" disabled>Registrar aluno extra</button>
+      <button class="botao cinza" id="btn-encerrar" type="button">Encerrar entrega</button>
+    </div>
+
+    <section class="tabela" aria-label="Alunos do dia">
+      <div class="linha cabeca">
+        <span>Matrícula</span><span>Nome completo</span><span>Curso</span><span style="text-align:right">Entrega</span>
+      </div>
+      <div id="linhas"></div>
+    </section>
+
+    <section id="bloco-extras" hidden>
+      <h2 class="subtitulo">Alunos extras atendidos</h2>
+      <div class="tabela">
+        <div class="linha cabeca">
+          <span>Matrícula</span><span>Nome completo</span><span>Curso</span><span style="text-align:right">Entrega</span>
+        </div>
+        <div id="linhas-extras"></div>
+      </div>
+    </section>
+
+    <p class="rodape-nota" id="nota">O botão de aluno extra libera quando houver almoço sobrando.</p>
+  </main>
+
+  <div class="fundo-modal" id="modal-extra" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-modal">
+      <h2 id="titulo-modal">Registrar aluno extra</h2>
+      <p class="ajuda">Use apenas para alunos que não estão na lista do dia.</p>
+      <div class="campo">
+        <label for="extra-matricula">Matrícula</label>
+        <input type="text" id="extra-matricula" placeholder="Digite a matrícula">
+      </div>
+      <div class="campo">
+        <label for="extra-nome">Nome completo</label>
+        <input type="text" id="extra-nome" placeholder="Digite o nome do aluno">
+      </div>
+      <div class="campo">
+        <label for="extra-curso">Curso</label>
+        <input type="text" id="extra-curso" placeholder="Digite o curso do aluno">
+      </div>
+      <div class="resumo-modal" id="resumo-modal"></div>
+      <p class="erro" id="erro-extra" hidden></p>
+      <div class="botoes">
+        <button class="botao cinza" id="extra-cancelar" type="button">Cancelar</button>
+        <button class="botao" id="extra-confirmar" type="button">Confirmar entrega</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fundo-modal" id="modal-desmarcar" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-desmarcar">
+      <h2 id="titulo-desmarcar">Desmarcar entrega</h2>
+      <p class="ajuda" id="texto-desmarcar"></p>
+      <div class="botoes">
+        <button class="botao cinza" id="desmarcar-cancelar" type="button">Cancelar</button>
+        <button class="botao" id="desmarcar-confirmar" type="button">Sim, desmarcar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="fundo-modal" id="modal-encerrar" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="titulo-encerrar">
+      <h2 id="titulo-encerrar">Encerrar entrega da lista?</h2>
+      <p class="ajuda" id="texto-encerrar"></p>
+      <div class="botoes">
+        <button class="botao cinza" id="encerrar-cancelar" type="button">Cancelar</button>
+        <button class="botao" id="encerrar-confirmar" type="button">Encerrar entrega</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/repositorio.js"></script>
+  <script src="js/lista.js"></script>
+</body>
+
+</html>

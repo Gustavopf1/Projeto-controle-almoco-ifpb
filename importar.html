@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Importar lista | Controle de almoço</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topo">
+    <h1>Importar lista do dia</h1>
+    <div class="topo-direita">
+      <span>Responsável</span>
+      <button class="botao" id="btn-sair" type="button">Sair</button>
+    </div>
+  </header>
+
+  <a class="link-voltar" href="lista.html">&larr; Voltar para a lista do dia</a>
+
+  <main class="centro">
+    <section class="cartao largo">
+      <h2>Enviar planilha da CAEST</h2>
+      <p class="ajuda">Envie a planilha da CAEST com Matrícula e Nome completo. Outras colunas serão ignoradas.</p>
+
+      <div class="upload" id="area-upload">
+        <strong>Arraste a planilha aqui ou escolha um arquivo</strong>
+        <small>Formatos aceitos: .csv e .xlsx</small>
+        <button class="botao contorno" id="btn-escolher" type="button">Escolher arquivo</button>
+        <span class="nome-arquivo" id="nome-arquivo" hidden></span>
+        <input type="file" id="arquivo" accept=".csv,.xlsx,.xls" hidden>
+      </div>
+
+      <div class="campo">
+        <label for="data-lista">Data da lista</label>
+        <input type="date" id="data-lista">
+      </div>
+
+      <button class="botao cheio" id="btn-importar" type="button">Importar lista</button>
+
+      <p class="erro" id="erro" hidden></p>
+      <p class="sucesso" id="sucesso" hidden></p>
+      <a class="botao contorno" id="ver-lista" href="lista.html" hidden style="margin-top:16px">Ver lista do dia</a>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/repositorio.js"></script>
+  <script src="js/importar.js"></script>
+</body>
+</html>
